@@ -3,8 +3,12 @@
 - type: github
   icon: "fab fa-github"
 
-- type: twitter
-  icon: "fa-brands fa-x-twitter"
+# - type: twitter
+#   icon: "fa-brands fa-x-twitter"
+
+- type: blog
+  icon: "fa-solid fa-blog"
+  url: "https://forsakendelusion.online"
 
 - type: email
   icon: "fas fa-envelope"
