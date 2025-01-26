@@ -1,7 +1,7 @@
 ---
 title: CS61C-Representation of Number & C Basic
 date: 2024-08-06 22:21:22 +08:00
-filename: 2025-01-26-CS61C-Representation of Number & C Basic
+filename: 2024-08-09-CS61C-Representation of Number & C Basic
 categories:
   - openclass
 tags:
