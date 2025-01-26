@@ -1,12 +1,11 @@
 ---
-title: CS61C-Lec6-RISC-V Intro
-date: 2025-01-25T21:46:06+08:00
-filename: 2025-01-25-CS61C-Lec6-RISC-V Intro
+title: CS61C｜Lec6-RISC-V Intro
+date: 2024-08-09 06:29:48 +08:00
+filename: 2024-08-09-CS61C｜Lec6-RISC-V Intro
 categories:
   - openclass
 tags:
   - CS61C
-  - C
 dir: openclass
 share: true
 ---
