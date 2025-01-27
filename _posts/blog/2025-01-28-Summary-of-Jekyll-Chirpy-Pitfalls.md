@@ -21,7 +21,7 @@ share: true
 
 这种情况。解决办法也很简单， 把以下内容添加到 `assets/css/jekyll-theme-chirpy.scss` 文件中。如果你还没有这个[文件](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/assets/css/jekyll-theme-chirpy.scss)，那就创建一个：
 
-\n    {% raw %}\n    ```scss
+```scss
 ---
 ---
 
@@ -42,7 +42,7 @@ html:not([data-mode]) .highlight .err, html[data-mode=dark] .highlight .err {
   background-color: unset;
 }
 
-```\n    {% endraw %}\n    
+```
 
 ## Vercel构建失败
 
