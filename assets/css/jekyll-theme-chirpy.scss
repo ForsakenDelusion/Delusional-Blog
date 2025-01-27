@@ -1,9 +1,19 @@
+---
+---
+
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
 html[data-mode=light] .highlight .err {
-  color: var(--code-color);
-  background-color: #ffffff00;
+  color: unset;
+  background-color: unset;
 }
 
 html:not([data-mode]) .highlight .err, html[data-mode=dark] .highlight .err {
-  color: var(--code-color);
-  background-color: #00000000;
+  color: unset;
+  background-color: unset;
 }
