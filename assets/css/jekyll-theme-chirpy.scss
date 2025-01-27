@@ -1,0 +1,9 @@
+html[data-mode=light] .highlight .err {
+  color: var(--code-color);
+  background-color: #ffffff00;
+}
+
+html:not([data-mode]) .highlight .err, html[data-mode=dark] .highlight .err {
+  color: var(--code-color);
+  background-color: #00000000;
+}
