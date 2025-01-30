@@ -7,7 +7,6 @@ categories:
 tags:
   - Environment
   - C
-  - C++
 dir: Misc
 share: true
 ---
