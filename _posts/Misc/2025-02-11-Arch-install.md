@@ -485,6 +485,25 @@ systemctl enable nvidia-powerd.service
 systemctl start nvidia-powerd.service
 ```
 
+## 坑点
+
+### 蓝牙键盘
+
+在启用蓝牙键盘（罗技K380）的时候，在Dolphin文件管理器右键文件属性的时候，会发生卡顿。
+
+参考链：
+
+https://www.reddit.com/r/kde/comments/1hntzg3/opening_file_folder_properties_in_dolphin_is/
+
+解决方案
+
+```shell
+$ balooctl6 suspend
+$ balooctl6 disable
+$ balooctl6 purge
+$ sudo reboot now
+```
+
 ## 后面的就是本人的私人配置
 
 仅做记录，大家可以忽略
