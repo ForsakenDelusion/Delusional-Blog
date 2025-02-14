@@ -433,7 +433,32 @@ wget -O- https://github.com/shvchk/fallout-grub-theme/raw/master/install.sh | ba
 
 ## Nvidia
 
-我采用独显直连，但是发现在Wayland下Nvidia会有奇怪的Bug，体现在频繁掉帧，输入法快速打字响应很慢等问题，所以最后还是选择用X11。
+### 解决Wayland卡顿问题
+
+~~我采用独显直连，但是发现在Wayland下Nvidia会有奇怪的Bug，体现在频繁掉帧，输入法快速打字响应很慢等问题，所以最后还是选择用X11。~~已解决，方案如下
+
+禁用GSP硬件。注意这里貌似要采用`nvidia`的闭源驱动。
+
+```shell
+sudo vim /etc/modprobe.d/nvidia.conf   
+```
+
+加上以下选项。
+
+```
+options nvidia "NVreg_EnableGpuFirmware=0"
+```
+
+然后
+
+```shell
+sudo mkinitcpio -P
+sudo grub-mkconfig -o /boot/grub/grub.cfg 
+```
+
+重启电脑即可。
+
+感受你丝滑的Linux吧!
 
 > So Nvidia,fuck you!
 
