@@ -20,8 +20,11 @@ Linux-zen Nvidia-dkms
 一些可供参考的链接。
 
 https://discuss.kde.org/t/wayland-plasma-6-1-nvidia-555-intermittent-application-stuttering/17629
+
 https://www.reddit.com/r/kde/comments/qr1obx/laggy_nvidiaarchwaylandplasma_any_way_to_improve/
+
 https://discuss.kde.org/t/kde-plasma-wayland-nvidia-low-fps-stutters/27064
+
 https://bbs.archlinux.org/viewtopic.php?pid=2182638
 
 ## 方法一
