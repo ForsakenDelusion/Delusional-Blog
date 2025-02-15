@@ -485,6 +485,35 @@ systemctl enable nvidia-powerd.service
 systemctl start nvidia-powerd.service
 ```
 
+### 设置Nvidia最低频率
+
+当静止桌面活动一段时间之后，显卡频率会自动降至最低，但是一旦继续活动，频率恢复的不及时就会导致一点卡顿。为了避免这种影响体验的事情发生，我们手动锁定显卡最低频率。
+
+这里设置405为最低频率，2100为最高频率，可以先看看默认的最高频率是多少再设置。
+
+```shell
+# 这个命令会显示所有支持的频率组合
+nvidia-smi -q -d SUPPORTED_CLOCKS
+# 持久模式让设置在重启后仍然生效 
+sudo nvidia-smi -pm 1
+# 限制频率
+sudo nvidia-smi -lgc 405,2100 
+```
+
+取消持久模式：
+
+```shell
+sudo nvidia-smi -pm 0
+```
+
+这条命令会禁用持久模式，0 表示关闭。执行后，你应该会看到类似这样的消息： "Disabled persistence mode for GPU 00000000:01:00.0"
+
+取消频率限制：
+
+```shell
+sudo nvidia-smi -rgc
+```
+
 ## 坑点
 
 ### 蓝牙键盘
