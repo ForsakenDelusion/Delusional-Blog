@@ -14,12 +14,12 @@ timezone: Asia/Shanghai
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Delusion # the main title
+title: 澪妄之地 # the main title
 
 tagline: 吾心吾行澄如明镜 # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  用于学习记录的博客
+  澪妄之地：一个用于记录学习的博客
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -35,7 +35,7 @@ social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: Delusion
-  email: wangcy0205@outlook.com # change to your email address
+  email: wangcy0205@gmail.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
     # - https://twitter.com/username # change to your Twitter homepage
