@@ -3,11 +3,11 @@ title: CS61C｜Lec8-RISC-V Instruction Formats
 date: 2024-08-19 00:34:03 +08:00
 filename: 2024-08-19-CS61C｜Lec8-RISC-V Instruction Formats
 categories:
-  - OpenClass
+  - OpenCourse
 tags:
   - CS61C
   - RISCV
-dir: OpenClass
+dir: OpenCourse
 share: true
 ---
 ![CS61C｜Lec8-RISC-V Instruction Formats-20250122.png](../../assets/images/CS61C%EF%BD%9CLec8-RISC-V%20Instruction%20Formats-20250122.png)

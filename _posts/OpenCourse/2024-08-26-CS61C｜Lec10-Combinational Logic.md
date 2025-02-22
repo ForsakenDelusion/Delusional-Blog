@@ -3,13 +3,13 @@ title: CS61C｜Lec10-Combinational Logic
 date: 2024-08-26 00:34:03 +08:00
 filename: 2024-08-26-CS61C｜Lec10-Combinational Logic
 categories:
-  - OpenClass
+  - OpenCourse
 tags:
   - CS61C
   - Computer Architecture
   - Computer
   - Architecture
-dir: OpenClass
+dir: OpenCourse
 share: true
 ---
 # Hardware Design Overview

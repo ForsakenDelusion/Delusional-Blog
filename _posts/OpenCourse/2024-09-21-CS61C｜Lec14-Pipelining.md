@@ -3,13 +3,13 @@ title: CS61C｜Lec14-Pipelining
 date: 2024-09-21 00:34:03 +08:00
 filename: 2024-09-21-CS61C｜Lec14-Pipelining
 categories:
-  - OpenClass
+  - OpenCourse
 tags:
   - CS61C
   - Computer Architecture
   - Computer
   - Architecture
-dir: OpenClass
+dir: OpenCourse
 share: true
 ---
 前面介绍了一下关于如何衡量处理器性能，还有一些关于功耗的问题，感觉不太重要就随便听了一下，所以也没记笔记。

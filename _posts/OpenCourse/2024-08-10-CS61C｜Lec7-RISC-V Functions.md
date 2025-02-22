@@ -3,11 +3,11 @@ title: CS61C｜Lec7-RISC-V Functions
 date: 2024-08-10 00:34:03 +08:00
 filename: 2024-08-10-CS61C｜Lec7-RISC-V Functions
 categories:
-  - OpenClass
+  - OpenCourse
 tags:
   - CS61C
   - RISCV
-dir: OpenClass
+dir: OpenCourse
 share: true
 ---
 # Pseudo-Instructions

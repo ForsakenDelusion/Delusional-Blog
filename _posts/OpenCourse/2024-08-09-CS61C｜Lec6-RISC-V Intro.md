@@ -3,10 +3,10 @@ title: CS61C｜Lec6-RISC-V Intro
 date: 2024-08-09 06:29:48 +08:00
 filename: 2024-08-09-CS61C｜Lec6-RISC-V Intro
 categories:
-  - OpenClass
+  - OpenCourse
 tags:
   - CS61C
-dir: OpenClass
+dir: OpenCourse
 share: true
 ---
 # Intro to Assembly Language

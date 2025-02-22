@@ -3,13 +3,13 @@ title: CS61C｜Lec13-Single-Cycle CPU Datapath Controls
 date: 2024-09-02 00:34:03 +08:00
 filename: 2024-09-02-CS61C｜Lec13-Single-Cycle CPU Datapath Controls
 categories:
-  - OpenClass
+  - OpenCourse
 tags:
   - CS61C
   - Computer Architecture
   - Computer
   - Architecture
-dir: OpenClass
+dir: OpenCourse
 share: true
 ---
 # Control and Status Registers

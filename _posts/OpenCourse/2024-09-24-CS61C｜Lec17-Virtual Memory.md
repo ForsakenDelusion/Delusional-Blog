@@ -3,11 +3,11 @@ title: CS61C｜Lec17-Virtual Memory
 date: 2024-09-24 00:33:58 +08:00
 filename: 2024-09-24-CS61C｜Lec17-Virtual Memory
 categories:
-  - OpenClass
+  - OpenCourse
 tags:
   - CS61C
   - OS
-dir: OpenClass
+dir: OpenCourse
 share: true
 ---
 **虚拟内存的主要功能**：

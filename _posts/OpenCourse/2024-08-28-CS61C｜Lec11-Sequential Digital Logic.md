@@ -3,13 +3,13 @@ title: CS61C｜Lec11-Sequential Digital Logic
 date: 2024-08-28 00:34:03 +08:00
 filename: 2024-08-28-CS61C｜Lec11-Sequential Digital Logic
 categories:
-  - OpenClass
+  - OpenCourse
 tags:
   - CS61C
   - Computer Architecture
   - Computer
   - Architecture
-dir: OpenClass
+dir: OpenCourse
 share: true
 ---
 # Muxes

@@ -3,13 +3,13 @@ title: CS61C｜Lec12-Single-Cycle CPU Datapath
 date: 2024-08-31 00:34:03 +08:00
 filename: 2024-08-31-CS61C｜Lec12-Single-Cycle CPU Datapath
 categories:
-  - OpenClass
+  - OpenCourse
 tags:
   - CS61C
   - Computer Architecture
   - Computer
   - Architecture
-dir: OpenClass
+dir: OpenCourse
 share: true
 ---
 # What's a CPU
