@@ -6,7 +6,7 @@ categories:
   - OpenCourse
 tags:
   - CS61C
-  - Computer Architecture
+  - ComputerArchitecture
   - Computer
   - Architecture
 dir: OpenCourse
