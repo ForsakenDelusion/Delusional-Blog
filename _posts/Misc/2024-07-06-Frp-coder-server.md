@@ -1,7 +1,7 @@
 ---
 title: 使用Frp进行coder-server部署
-date: 2024-7-06 00:34:03 +08:00
-filename: 2024-7-06-Frp-coder-server
+date: 2024-07-06 00:34:03 +08:00
+filename: 2024-07-06-Frp-coder-server
 categories:
   - Misc
 tags:
