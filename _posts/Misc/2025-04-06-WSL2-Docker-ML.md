@@ -251,7 +251,7 @@ sudo systemctl restart docker
 
 ```shell
 # 创建并启动一个带有 GPU 支持和自定义主机名的交互式容器 
-docker run --name ml-environment --hostname ml-server --gpus all -it -p 8888:8888 -p 6006:6006 -v $(pwd):/workspace ubuntu:22.04
+docker run --name ml-environment --hostname ml-server --gpus all --shm-size=2g -it -p 8888:8888 -p 6006:6006 -v $(pwd):/workspace ubuntu:22.04
 ```
 
 命令说明：
@@ -299,6 +299,8 @@ docker run --name ml-environment --hostname ml-server --gpus all -it -p 8888:888
 
 由于 Windows 10 不支持 WSL 的 mirrored 网络模式，我们需要通过端口转发来实现局域网对 WSL 和 Docker 服务的访问。
 
+>真不想更新win11口阿！
+
 https://github.com/HobaiRiku/wsl2-auto-portproxy
 
 直接用这玩意，能自动的检测wsl开的端口并设置转发。很方便。
@@ -335,6 +337,7 @@ jupyter notebook --ip 0.0.0.0 --port 8888 --allow-root --no-browser
 请注意，由于 WSL 2 使用的是 NAT 网络模式，您需要手动维护端口转发规则，特别是在 WSL 的 IP 地址发生变化时。未来版本的 Windows 可能会提供更简便的网络配置方法，但目前这是在 Windows 10 上实现局域网访问 WSL 服务的最可靠方式。
 
 通过这种设置，您可以在熟悉的 Windows 环境中享受 Linux 和 Docker 的强大功能，同时充分利用 NVIDIA GPU 进行机器学习和深度学习任务。
+
 ---
 ## 参考
 https://programnotes.cn/wsl-how-change-disk-location/
