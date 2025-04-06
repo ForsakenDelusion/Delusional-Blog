@@ -60,7 +60,7 @@ wsl --set-default-version 2
 1. 在 PowerShell 中执行：
 
 ```shell
-wsl --install -d Ubuntu-22.04
+wsl --install -d Ubuntu-24.04
 ```
 
 2. 安装完成后，系统会自动启动 Ubuntu 并要求设置用户名和密码
@@ -77,8 +77,95 @@ wsl -l -v
 
 ```shell
  NAME            STATE           VERSION
-*Ubuntu-22.04    Running         2
+*Ubuntu-24.04    Running         2
 ```
+
+### 1.5 配置WSL代理
+
+直接去参考
+
+https://eastmonster.github.io/2022/10/05/clash-config-in-wsl/
+
+https://zhuanlan.zhihu.com/p/153124468
+
+### 1.6 美化shell+便捷代理开关
+
+https://zhuanlan.zhihu.com/p/68336685
+
+#### 安装 zsh
+
+先看下自己有哪一些 shell
+
+```bash
+cat /etc/shells
+```
+
+如果没有 zsh 需要安装
+
+```text
+sudo apt-get install zsh #Ubuntu Linux记得先升级下 apt-get
+sudo yum install zsh #Redhat Linux
+
+chsh -s /bin/zsh #安装完成后设置当前用户使用 zsh 并重启 wsl
+```
+
+#### 安装 oh my zsh
+
+此时我们需要下载 [oh-my-zsh](https://link.zhihu.com/?target=https%3A//github.com/robbyrussell/oh-my-zsh)
+
+```text
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+看项目 readme 还是写的非常详细的，安装好后重启 wsl 便是用的 oh my zsh
+
+此时我们可以根据该项目 readme 切换主题
+
+```text
+sudo apt-get install vim #debain 默认命令 vi 并没有安装 vim
+vi ~/.zshrc
+```
+
+克隆插件
+
+```shell
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+修改
+
+```text
+ZSH_THEME="agnoster"
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions z)
+```
+
+再加上我们的代理脚本，大家根据自己的情况修改。
+
+```shell
+# >>>终端配置代理 START <<<
+host_ip=$(cat /etc/resolv.conf |grep "nameserver" |cut -f 2 -d " ")
+proxy_ip=http://$host_ip:7890
+
+alias poff='
+unset http_proxy;
+unset https_proxy;
+unset socket5;
+'
+# 运行 pon 即可快捷打开代理
+alias pon='
+export http_proxy=$proxy_ip;
+export https_proxy=$proxy_ip;
+export socket5=$proxy_ip;
+'
+```
+
+保存后
+
+```text
+source ~/.zshrc
+```
+
 
 ## 第二部分：在 WSL 中配置 CUDA 环境
 
@@ -225,6 +312,8 @@ For more examples and ideas, visit:
 
 ### 3.2 安装 NVIDIA Container Toolkit
 
+这是用于Docker访问GPU
+
 https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installing-on-ubuntu-and-debian
 
 在 WSL 中可以直接安装 Ubuntu 版本的 NVIDIA Container Toolkit。
@@ -245,13 +334,77 @@ sudo systemctl restart docker
 
 ## 第四部分：创建和配置 Docker 容器
 
+### 这部分可以直接拉官方维护的镜像
+
+以下是一个实例
+
+#### **步骤 2：拉取预配置的机器学习镜像**
+
+使用官方或社区维护的 GPU 支持镜像
+
+```
+docker pull pytorch/pytorch:2.6.0-cuda12.6-cudnn9-devel
+```
+
+
+---
+
+#### **步骤 3：运行容器并挂载目录**
+
+```
+docker run -it \
+  --name tf-gpu-env \            # 给容器一个有意义的名称
+  --hostname ml-workstation \    # 设置容器内的主机名
+  --gpus all \                   # 启用 GPU
+  -v $(pwd):/workspace \         # 挂载当前目录到容器的 /workspace
+  -p 8888:8888 \                # 映射 Jupyter 端口
+  -p 6006:6006 \                # 映射 TensorBoard 端口
+  --shm-size=8g \               # 共享内存设置大一点
+  pytorch/pytorch:2.6.0-cuda12.6-cudnn9-devel \ 
+  /bin/bash
+```
+
+---
+
+#### **步骤 4：在容器内验证环境**
+
+进入容器后，执行以下命令测试 GPU 是否可用：
+
+```
+# 检查 NVIDIA 驱动
+nvidia-smi
+
+# 检查 TensorFlow GPU 支持
+python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+```
+
+---
+
+#### **步骤 5：扩展环境（可选）**
+
+```
+# 安装 Jupyter Notebook
+pip install jupyter
+
+# 启动 Jupyter（在浏览器访问 http://localhost:8888）
+jupyter notebook --ip=0.0.0.0 --allow-root
+```
+
+---
+
+#### **快速启动命令（一键运行）**
+
+```
+docker run --name ml-environment --hostname ml-server --gpus all --shm-size=8g -it -p 8888:8888 -p 6006:6006 -v $(pwd):/workspace pytorch/pytorch:2.6.0-cuda12.6-cudnn9-devel /bin/bash
+```
+
 ### 4.1 创建一个基于 Ubuntu 22.04 的 Docker 容器
 
 我们将创建一个带有自定义主机名的 Ubuntu 容器，并将其作为开发环境：
 
 ```shell
 # 创建并启动一个带有 GPU 支持和自定义主机名的交互式容器 
-docker run --name ml-environment --hostname ml-server --gpus all --shm-size=2g -it -p 8888:8888 -p 6006:6006 -v $(pwd):/workspace ubuntu:22.04
+docker run --name ml-environment --hostname ml-server --gpus all --shm-size=8g -it -p 8888:8888 -p 6006:6006 -v $(pwd):/workspace ubuntu:22.04 /bin/bash
 ```
 
 命令说明：
@@ -292,7 +445,7 @@ pip3 install tensorflow torch torchvision torchaudio
 ```shell
 # 将容器保存为镜像 
 docker commit ml-environment my-ml-image:v1 # 如果容器已退出，可以用新镜像重新创建 
-docker run --name ml-environment --hostname ml-server --gpus all -it -p 8888:8888 -p 6006:6006 -v $(pwd):/workspace my-ml-image:v1
+docker run --name ml-environment --hostname ml-server --gpus all --shm-size=8g -it -p 8888:8888 -p 6006:6006 -v $(pwd):/workspace my-ml-image:v1
 ```
 
 ## 第五部分：配置网络以实现局域网访问
@@ -347,3 +500,7 @@ https://duanyll.com/2024/6/30/WSL2-Docker-Deep-Learning/#step-5---%E5%9C%A8-wsl-
 https://zhuanlan.zhihu.com/p/425312804
 
 https://vuepress.mirror.docker-practice.com/install/ubuntu/
+
+https://zhuanlan.zhihu.com/p/153124468
+
+https://zhuanlan.zhihu.com/p/68336685
