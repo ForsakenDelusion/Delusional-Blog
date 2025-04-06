@@ -272,6 +272,8 @@ docker run --name ml-environment --hostname ml-server --gpus all -it -p 8888:888
 apt update
 # 安装必要工具
 apt install -y sudo vim wget curl git build-essential python3 python3-pip
+# pip换源
+pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
 # 升级
 pip pip3 install --upgrade pip 
 # 安装基本的机器学习库
