@@ -11,9 +11,9 @@ tags:
 dir: Misc
 share: true
 ---
-WSL2，网络设置为Mirrored（超好用）！体现在虚拟机可以直接访问到主机的端口号！代理网络变得轻而易举，而且局域网访问也不需要再设置转发了，整个配置下来非常无感。
+**WSL2，网络设置为Mirrored**（超好用）！体现在虚拟机可以直接访问到主机的端口号！代理网络变得轻而易举，而且局域网访问也不需要再设置转发了，整个配置下来非常无感。
 
-另外我并没有使用docker继承，因为在后续操作中docker继承会导致systemctl和nvidia-container-toolkit拿不到docker信息。
+另外我并没有使用wsl的docker集成，因为在后续操作中docker集成会导致systemctl和nvidia-container-toolkit拿不到docker信息。
 
 然后就是了解到了我之前在docker里面开发的流程其实有误，之前我是将docker的ssh端口映射出去。然后连接外面开放的端口控制的。实际上，更好的解决方案是，ssh到docker的宿主机上，然后通过宿主机的docker插件连进docker访问。但是这也各有优劣，毕竟开放docker端口我就能一步到位了。
 
