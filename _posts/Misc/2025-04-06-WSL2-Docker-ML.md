@@ -10,6 +10,8 @@ tags:
 dir: Misc
 share: true
 ---
+仅教程只适用于WIN10下没有Mirrored网络模式下的配置，如果你是WIN11，那么请移步[2025-04-08-Win11-WSL-Mirrored-ML-Docker](./2025-04-08-Win11-WSL-Mirrored-ML-Docker.md),这里有更好的配置体验。另外，本片文章写的较为杂乱，只作为记录贴，需要有一定的环境配置基础，了解你自己在干什么。
+
 # 完整教程：在 WSL 中配置 Docker 及 GPU 环境并实现局域网访问
 
 ## 背景介绍
@@ -216,7 +218,6 @@ https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&D
 
 ### 3.1 安装 Docker
 
-
 方法一，较为繁琐
 ```shell
 sudo apt-get update
@@ -353,12 +354,25 @@ docker pull pytorch/pytorch:2.6.0-cuda12.6-cudnn9-devel
 
 ```
 docker run -it \
-  --name tf-gpu-env \            # 给容器一个有意义的名称
+  --name ml-gpu-env \
+  --hostname ml-workstation \
+  --gpus all \
+  -v $(pwd):/root/workspace \
+  -p 8888:8888 \
+  -p 6006:6006 \
+  -p 2222:22 \
+  --shm-size=8g \
+  pytorch/pytorch:2.6.0-cuda12.6-cudnn9-devel \
+  /bin/bash
+
+docker run -it \
+  --name ml-gpu-env \            # 给容器一个有意义的名称
   --hostname ml-workstation \    # 设置容器内的主机名
   --gpus all \                   # 启用 GPU
   -v $(pwd):/workspace \         # 挂载当前目录到容器的 /workspace
   -p 8888:8888 \                # 映射 Jupyter 端口
   -p 6006:6006 \                # 映射 TensorBoard 端口
+	-p 2222:22 \                  # 
   --shm-size=8g \               # 共享内存设置大一点
   pytorch/pytorch:2.6.0-cuda12.6-cudnn9-devel \ 
   /bin/bash
@@ -483,6 +497,92 @@ jupyter notebook --ip 0.0.0.0 --port 8888 --allow-root --no-browser
 --logdir ./logs --bind_all
 ```
 
+## 第七部分：关于SSH进Docker丢失环境变量的问题
+
+>换到新的配置流程[2025-04-08-Win11-WSL-Mirrored-ML-Docker](./2025-04-08-Win11-WSL-Mirrored-ML-Docker.md)之后这种情况便消失了，也不知道为什么。
+
+如下文章写的比较好
+
+https://www.cnblogs.com/zhenyuyaodidiao/p/9287497.html
+
+https://blog.spider.im/post/enviroment-in-docker/
+
+https://blog.csdn.net/m0_59029800/article/details/125479518
+
+以下内容节选自https://blog.spider.im/post/enviroment-in-docker/
+
+---
+
+### 首先我们的目标是：
+
+容器里的环境变量，对于跑在容器内的程序按理，应该直接就可以获得，即直接从各种语言的读取环境变量的方式就可以了。  
+docker帮我们实现了：启动的时候entrypoint拿到的是正确的环境变量，并且docker exec进入的时候环境变量是正确的，可获取到的。  
+但是用户有2种方式可能导致环境变量丢失:  
+可能用su - username的方式切换了账户导致环境变量丢失,注意这里虽然su - 的语义就是丢弃环境变量，但是我们认为k8s pod上设置的环境变量是全局可用的，我们也保证这样切换后设置的环境变量可用，当然你也可以不这么干  
+使用ssh的方式进入,这里又有两种 ssh进去进入login bash，或者就是ssh $ip xxxcommand 执行一个命令，进入一个nointeractive nologinbash的方式  
+这里2种其实都和bash对于环境变量文件的加载问题有关，所以看下bash这里的逻辑
+
+### 背景知识:
+
+bash有2种大的类型或者区别(这里不知道怎么描述)
+
+1. login：就是你登陆进去后获得的(第一个!)bash
+2. interactive：就是有终端提示符，可以敲命令那种。
+
+相应的也有取非的情况，两两排列组合，bash一共有4种模式
+
+1. login+interactive 就是你ssh 登陆进去后那个
+2. login+nointeractive 不常见，主要是bash -l script.sh 有时候我们在某些系统的运行脚本设置里面会这么写(比如监控的自定义命令监控)
+3. interactive+nologin 就是你开的各种终端模拟器开的那些 比如gnome-terminal那些标签页
+4. nointeractive+nologin 这种其实容易被遗忘，但这就是上次查问题所在 ssh $ip xxxxcommand 的情况
+
+与此同时，系统有一堆文件，bash会去读，具体就不一个个说明了，总结如下：  
+bash的每种模式会读取其所在列的内容，首先执行A，然后是B，C。而B1，B2和B3表示只会执行第一个存在的文件：
+
+```shell
++----------------+--------+-----------+---------------+  
+|                | login  |interactive|non-interactive|  
+|                |        |non-login  |non-login      |  
++----------------+--------+-----------+---------------+  
+|/etc/profile    |   A    |           |               |  
++----------------+--------+-----------+---------------+  
+|/etc/bash.bashrc|        |    A      |               |  
++----------------+--------+-----------+---------------+  
+|~/.bashrc       |        |    B      |               |  
++----------------+--------+-----------+---------------+  
+|~/.bash_profile |   B1   |           |               |  
++----------------+--------+-----------+---------------+  
+|~/.bash_login   |   B2   |           |               |  
++----------------+--------+-----------+---------------+  
+|~/.profile      |   B3   |           |               |  
++----------------+--------+-----------+---------------+  
+|BASH_ENV        |        |           |       A       |  
++----------------+--------+-----------+---------------+
+```
+
+另外通常情况下~/.bash_profile 里面都会加载~/.bashrc ,~/.bashrc里面又会加载/etc/bashrc 所以你平常加的时候，看起来到处加了都生效，但其实是上面的顺序。  
+除此之外login bash中B1 B2 B3 是有一个就不执行另外一个，所以通常不建议使用.bash_login 然后其实.profile 的目的是兼容非bash的，比如csh之类的，优雅点，可以.bash_profile里面写bash相关的,然后在.bash_profile里面自己主动加载下.profile(考虑到这个时候bash看到有.bash_profile是不会去加载.profile的)
+
+---
+
+很好的文章！
+
+### 解决方法
+
+#### 方法一
+
+```shell
+export $(cat /proc/1/environ |tr '\0' '\n' | xargs)
+source /etc/profile
+```
+
+#### 方法二
+
+```shell
+#需要修改 /etc/pam.d/password-auth 成  
+auth required pam_env.so envfile=/etc/environment
+```
+
 ## 总结
 
 本教程详细介绍了如何在 Windows 10 中配置 WSL 2、CUDA 环境和 Docker，并通过端口转发实现局域网对 WSL 和 Docker 容器内服务的访问。通过这种配置，您可以在 Windows 系统上拥有一个功能强大的机器学习开发环境，同时允许局域网中的其他设备（如平板电脑或笔记本电脑）访问您的服务。
@@ -490,6 +590,26 @@ jupyter notebook --ip 0.0.0.0 --port 8888 --allow-root --no-browser
 请注意，由于 WSL 2 使用的是 NAT 网络模式，您需要手动维护端口转发规则，特别是在 WSL 的 IP 地址发生变化时。未来版本的 Windows 可能会提供更简便的网络配置方法，但目前这是在 Windows 10 上实现局域网访问 WSL 服务的最可靠方式。
 
 通过这种设置，您可以在熟悉的 Windows 环境中享受 Linux 和 Docker 的强大功能，同时充分利用 NVIDIA GPU 进行机器学习和深度学习任务。
+
+```shell
+docker run --gpus all -it \
+  --name ml_container \
+  --shm-size=8g \
+  -p 8888:8888 \
+  -p 6006:6006 \
+  -p 8080:8080 \
+  -p 5000:5000 \
+  -p 2225:22 \
+  --ulimit memlock=-1 \
+  --ulimit stack=67108864 \
+  --privileged \
+  --init \
+  --cap-add=SYS_ADMIN \
+  --security-opt seccomp=unconfined \
+  -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
+  -v $(pwd):/workspace \
+  swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/nvidia/cuda:12.6.3-cudnn-devel-ubuntu24.04
+```
 
 ---
 ## 参考
