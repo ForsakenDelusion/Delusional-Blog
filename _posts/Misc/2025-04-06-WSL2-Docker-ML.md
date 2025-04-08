@@ -10,7 +10,7 @@ tags:
 dir: Misc
 share: true
 ---
-仅教程只适用于WIN10下没有Mirrored网络模式下的配置，如果你是WIN11，那么请移步[2025-04-08-Win11-WSL-Mirrored-ML-Docker](./2025-04-08-Win11-WSL-Mirrored-ML-Docker.md),这里有更好的配置体验。另外，本片文章写的较为杂乱，只作为记录贴，需要有一定的环境配置基础，了解你自己在干什么。
+仅教程只适用于WIN10下没有Mirrored网络模式下的配置，如果你是WIN11，那么请移步[Win11下的WSL2配合Docker搭建深度学习环境](https://delusion.uno/posts/Win11-WSL-Mirrored-ML-Docker/),这里有更好的配置体验。另外，本片文章写的较为杂乱，只作为记录贴，需要有一定的环境配置基础，了解你自己在干什么。
 
 # 完整教程：在 WSL 中配置 Docker 及 GPU 环境并实现局域网访问
 
@@ -499,7 +499,7 @@ jupyter notebook --ip 0.0.0.0 --port 8888 --allow-root --no-browser
 
 ## 第七部分：关于SSH进Docker丢失环境变量的问题
 
->换到新的配置流程[2025-04-08-Win11-WSL-Mirrored-ML-Docker](./2025-04-08-Win11-WSL-Mirrored-ML-Docker.md)之后这种情况便消失了，也不知道为什么。
+>换到新的配置流程[Win11下的WSL2配合Docker搭建深度学习环境](https://delusion.uno/posts/Win11-WSL-Mirrored-ML-Docker/)]]之后这种情况便消失了，也不知道为什么。
 
 如下文章写的比较好
 
