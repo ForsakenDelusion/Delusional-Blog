@@ -80,6 +80,8 @@ git clone https://isrc.iscas.ac.cn/gitlab/learningeulixos/2024-exercises-virtual
 
 通过 qemu 启动工具链与测试环境
 
+qcow2镜像路径是上面刚拉下来的文件里面的，实验工程路径就是要做实验的那个文件夹，
+
 ```
 qemu-system-riscv64 \
     -machine 'virt' \
@@ -130,4 +132,44 @@ make test-exercise-xx
 ```
 
 测试完成后可退出按 ctrl+A 然后按 X 退出 qemu
+
+## 修改实验挂载位置？
+
+如果你觉得挂载到`/lee`这个目录很奇怪，那么我们也可以着手修改。
+
+首先我们按照正常启动，进入qemu中
+
+然后用vscode在你的实验目录（即挂载进qemu的目录）下创建一个名为`fstab`的文件，填入以下内容
+```
+LABEL=rootfs    /       ext4    user_xattr,errors=remount-ro    0       1
+workspace  /root/workspace 9p  trans=virtio,version=9p2000.L,msize=1048576  0  0
+
+```
+
+注意，这个`workspace`和`/root/workspace`就是可以自行修改的玩意。
+
+如图所示，这样就是将目录挂载到`/root/workspace`这个位置。
+
+然后我们输入以下命令
+
+```shell
+cp /lee/fstab /etc/fstab
+```
+
+替换启动挂载文件
+
+完成上述步骤之后ctrl + a + x退出qemu。
+
+然后我们修改启动脚本。进入`2024-exercise-virtual-machines`，将启动脚本中的lee也替换成上面的第一个字段，例如
+
+```shell
+#!/bin/sh
+
+EXERCISES_PATH="$1"
+
+qemu-system-riscv64 -machine 'virt' -cpu 'rv64' -m 1G -device virtio-blk-device,drive=hd -drive file=stage-1.qcow2,if=none,id=hd -device virtio-net-device,netdev=net -netdev user,id=net,hostfwd=tcp::2222-:22 -virtfs local,id=workspace,path="$EXERCISES_PATH",mount_tag=workspace,security_model=passthrough -bios /usr/lib/riscv64-linux-gnu/opensbi/generic/fw_jump.elf -kernel /usr/lib/u-boot/qemu-riscv64_smode/uboot.elf -object rng-random,filename=/dev/urandom,id=rng -device virtio-rng-device,rng=rng -nographic -append "root=LABEL=rootfs console=ttyS0"
+
+```
+
+然后运行这个新脚本即可
 
