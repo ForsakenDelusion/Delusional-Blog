@@ -1,5 +1,5 @@
 ---
-title: RISCV操作系统-CH01
+title: RISCV操作系统-CH01-计算机系统漫游
 date: 2025-04-13 10:42:21 +08:00
 filename: 2025-04-13-EulixOS-Pre-CH01
 categories:
