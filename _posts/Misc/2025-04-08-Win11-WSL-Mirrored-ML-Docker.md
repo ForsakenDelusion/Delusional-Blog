@@ -425,7 +425,7 @@ RUN apt-get update && apt-get install -y openssh-server && \
 CMD ["/usr/sbin/sshd", "-D"]
 ```
 
-以下内容来自(https://duanyll.com/2024/6/30/WSL2-Docker-Deep-Learning/#docker-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8)
+以下内容来自https://duanyll.com/2024/6/30/WSL2-Docker-Deep-Learning/#docker-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8
 
 ### Docker 快速入门
 
