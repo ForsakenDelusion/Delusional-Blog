@@ -82,6 +82,47 @@ wsl -l -v
 *Ubuntu-24.04    Running         2
 ```
 
+#### 迁移WSL位置
+
+##### 准备和验证
+
+查询已安装的子系统
+
+```
+wsl -l  
+  
+# 适用于 Linux 的 Windows 子系统分发:  
+# Ubuntu-24.04 (默认)  
+# docker-desktop  
+# docker-desktop-data
+```
+
+查询wsl安装的Ubuntu24磁盘位置, “Ubuntu-24.04”为需要查询的子系统版本
+
+```
+(Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss | Where-Object { $_.GetValue("DistributionName") -eq 'Ubuntu-24.04' }).GetValue("BasePath") + "\ext4.vhdx"
+```
+
+结果如下,默认在C盘(使用微软商店安装的情况下)
+
+C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc\LocalState\ext4.vhdx
+
+##### 迁移
+
+– move后指定目标位置,这里我放到d:\ubuntu下
+
+wsl --manage Ubuntu-24.04 --move d:\ubuntu
+##### 验证
+
+```
+(Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss | Where-Object { $_.GetValue("DistributionName") -eq 'Ubuntu-24.04' }).GetValue("BasePath") + "\ext4.vhdx"  
+  
+#d:\ubuntu\ext4.vhdx
+```
+##### 参考
+
+- [微软官方文档](https://learn.microsoft.com/zh-cn/windows/wsl/disk-space)
+
 ### 1.5 配置WSL代理
 
 直接去参考
