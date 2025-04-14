@@ -16,17 +16,17 @@ share: true
 
 ## 目录
 
-- [GCC介绍](2025-04-13-EulixOS-Pre-CH03.md/#gcc介绍)
-    - [GCC简介](2025-04-13-EulixOS-Pre-CH03.md/#gcc简介)
-    - [GCC的命令格式](2025-04-13-EulixOS-Pre-CH03.md/#gcc的命令格式)
-    - [GCC的主要执行步骤](2025-04-13-EulixOS-Pre-CH03.md/#gcc的主要执行步骤)
-    - [GCC涉及的文件类型](2025-04-13-EulixOS-Pre-CH03.md/#gcc涉及的文件类型)
-    - [针对多个源文件的处理](2025-04-13-EulixOS-Pre-CH03.md/#针对多个源文件的处理)
-- [ELF介绍](2025-04-13-EulixOS-Pre-CH03.md/#elf介绍)
-    - [ELF简介](2025-04-13-EulixOS-Pre-CH03.md/#elf简介)
-    - [ELF文件格式](2025-04-13-EulixOS-Pre-CH03.md/#elf文件格式)
-    - [ELF文件处理相关工具：Binutils](2025-04-13-EulixOS-Pre-CH03.md/#elf文件处理相关工具：binutils)
-- [学习编译和链接的好处](2025-04-13-EulixOS-Pre-CH03.md/#学习编译和链接的好处)
+- [GCC介绍](#gcc介绍)
+    - [GCC简介](#gcc简介)
+    - [GCC的命令格式](#gcc的命令格式)
+    - [GCC的主要执行步骤](#gcc的主要执行步骤)
+    - [GCC涉及的文件类型](#gcc涉及的文件类型)
+    - [针对多个源文件的处理](#针对多个源文件的处理)
+- [ELF介绍](#elf介绍)
+    - [ELF简介](#elf简介)
+    - [ELF文件格式](#elf文件格式)
+    - [ELF文件处理相关工具：Binutils](#elf文件处理相关工具：binutils)
+- [学习编译和链接的好处](#学习编译和链接的好处)
 
 ## GCC介绍
 
