@@ -16,21 +16,21 @@ share: true
 
 ## 目录
 
-- [什么是嵌入式开发](2025-04-13-EulixOS-Pre-CH04.md/#什么是嵌入式开发)
-- [交叉编译](2025-04-13-EulixOS-Pre-CH04.md/#交叉编译)
-    - [交叉编译的定义](2025-04-13-EulixOS-Pre-CH04.md/#交叉编译的定义)
-    - [编译系统分类](2025-04-13-EulixOS-Pre-CH04.md/#编译系统分类)
-    - [GNU交叉编译工具链](2025-04-13-EulixOS-Pre-CH04.md/#gnu交叉编译工具链)
-- [调试器GDB](2025-04-13-EulixOS-Pre-CH04.md/#调试器gdb)
-    - [GDB简介](2025-04-13-EulixOS-Pre-CH04.md/#gdb简介)
-    - [GDB基本调试流程](2025-04-13-EulixOS-Pre-CH04.md/#gdb基本调试流程)
-- [模拟器QEMU](2025-04-13-EulixOS-Pre-CH04.md/#模拟器qemu)
-    - [QEMU简介](2025-04-13-EulixOS-Pre-CH04.md/#qemu简介)
-    - [QEMU的安装和使用](2025-04-13-EulixOS-Pre-CH04.md/#qemu的安装和使用)
-- [项目构造工具Make](2025-04-13-EulixOS-Pre-CH04.md/#项目构造工具make)
-    - [Make简介](2025-04-13-EulixOS-Pre-CH04.md/#make简介)
-    - [Makefile的构成](2025-04-13-EulixOS-Pre-CH04.md/#makefile的构成)
-    - [make的运行](2025-04-13-EulixOS-Pre-CH04.md/#make的运行)
+- [什么是嵌入式开发](#什么是嵌入式开发)
+- [交叉编译](#交叉编译)
+    - [交叉编译的定义](#交叉编译的定义)
+    - [编译系统分类](#编译系统分类)
+    - [GNU交叉编译工具链](#gnu交叉编译工具链)
+- [调试器GDB](#调试器gdb)
+    - [GDB简介](#gdb简介)
+    - [GDB基本调试流程](#gdb基本调试流程)
+- [模拟器QEMU](#模拟器qemu)
+    - [QEMU简介](#qemu简介)
+    - [QEMU的安装和使用](#qemu的安装和使用)
+- [项目构造工具Make](#项目构造工具make)
+    - [Make简介](#make简介)
+    - [Makefile的构成](#makefile的构成)
+    - [make的运行](#make的运行)
 
 ## 什么是嵌入式开发
 
