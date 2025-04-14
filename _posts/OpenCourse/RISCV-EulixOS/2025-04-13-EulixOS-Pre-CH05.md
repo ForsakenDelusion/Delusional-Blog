@@ -5,7 +5,10 @@ filename: 2025-04-13-EulixOS-Pre-CH05
 categories:
   - OpenCourse
   - EulixOS
-tags: 
+tags:
+  - RISCV
+  - EulixOS
+  - OS
 dir: OpenCourse/RISCV-EulixOS
 share: true
 ---
