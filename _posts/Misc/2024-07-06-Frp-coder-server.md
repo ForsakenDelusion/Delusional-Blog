@@ -177,7 +177,57 @@ localPort = 2333 # 刚刚我们code-server的端口
 customDomains = ["替换成你的域名"]
 ```
 
-按照刚刚的方法配置一遍frpc的自启，记得改名字和路径。
+同样的，我们配一下自启动服务
+
+2. **创建 frpc.service 文件**
+    
+    使用文本编辑器 (如 vim) 在 `/etc/systemd/system` 目录下创建一个 `frpc.service` 文件，用于配置 frpc 服务。
+    
+    `$ sudo vim /etc/systemd/system/frpc.service`
+    
+    写入内容
+    
+```
+[Unit]
+# 服务名称，可自定义
+Description = frpc server
+After = network.target syslog.target
+Wants = network.target
+
+[Service]
+Type = simple
+# 启动frpc的命令，需修改为您的frpc的安装路径
+ExecStart =/home/yu/frp/frpc -c /home/yu/frp/frpc.toml
+Restart=always
+RestartSec=30
+User=root
+Group=root
+
+[Install]
+WantedBy = multi-user.target
+```
+    
+3. **使用 systemd 命令管理 frps 服务**
+    
+```shell
+# 启动frp
+sudo systemctl start frpc
+# 停止frp
+sudo systemctl stop frpc
+# 重启frp
+sudo systemctl restart frpc
+# 查看frp状态
+sudo systemctl status frpc
+
+```
+    
+4. **设置 frps 开机自启动**
+    
+```shell
+sudo systemctl enable frpc
+```
+    
+
 
 至此，frp以及配置完成，你应该可以通过你的域名+端口(18080或者18443)来访问网页了，但是这种方法太不优雅了，所以我们下面要进行nginx反向代理的配置
 
@@ -197,5 +247,4 @@ customDomains = ["替换成你的域名"]
 
 [参考资料1](https://blog.csdn.net/wanger5354/article/details/131934728?ops_request_misc=&request_id=&biz_id=102&utm_term=nginx反向代理%20502&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-3-131934728.142^v100^pc_search_result_base5&spm=1018.2226.3001.4187)
 
-[参考资料2](https://longsheng.org/post/20639.html
-)
+[参考资料2](https://longsheng.org/post/20639.html)
