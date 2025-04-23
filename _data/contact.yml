@@ -6,9 +6,9 @@
 # - type: twitter
 #   icon: "fa-brands fa-x-twitter"
 
-- type: blog
+- type: book
   icon: "fa-solid fa-blog"
-  url: "https://forsakendelusion.online"
+  url: "https://delusional-book.gitbook.io/a-tour-of-c++"
 
 - type: email
   icon: "fas fa-envelope"
