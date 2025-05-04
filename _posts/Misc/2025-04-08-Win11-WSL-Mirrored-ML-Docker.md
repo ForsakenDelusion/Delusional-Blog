@@ -41,7 +41,6 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y build-essential git cmake wget curl
 ```
 
-
 ### 配置WSL的SSH
 
 用于局域网访问WSL
@@ -518,6 +517,51 @@ Visual Studio Code 的 DevContainer 功能可以让你在容器中开发代码�
 ![Win11下的WSL2配合Docker搭建深度学习环境-20250408.png](../../assets/images/Win11%E4%B8%8B%E7%9A%84WSL2%E9%85%8D%E5%90%88Docker%E6%90%AD%E5%BB%BA%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83-20250408.png)
 
 然后打开Docker扩展，选中你想进入的容器，右键，接着选择带有`Visual Studio Code`字样的选项即可。
+
+## 迁移WSL位置
+
+### 准备和验证
+
+查询已安装的子系统
+
+```
+wsl -l  
+  
+# 适用于 Linux 的 Windows 子系统分发:  
+# Ubuntu-24.04 (默认)  
+# docker-desktop  
+# docker-desktop-data
+```
+
+查询wsl安装的Ubuntu24磁盘位置, “Ubuntu-24.04”为需要查询的子系统版本
+
+```
+(Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss | Where-Object { $_.GetValue("DistributionName") -eq 'Ubuntu-24.04' }).GetValue("BasePath") + "\ext4.vhdx"
+```
+
+结果如下,默认在C盘(使用微软商店安装的情况下)
+
+```shell
+C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc\LocalState\ext4.vhdx
+```
+
+### 迁移
+
+`– move`后指定目标位置,这里我放到d:\ubuntu下
+
+```shell
+wsl --manage Ubuntu-24.04 --move d:\ubuntu
+```
+### 验证
+
+```
+(Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss | Where-Object { $_.GetValue("DistributionName") -eq 'Ubuntu-24.04' }).GetValue("BasePath") + "\ext4.vhdx"  
+  
+#d:\ubuntu\ext4.vhdx
+```
+### 参考
+
+- [微软官方文档](https://learn.microsoft.com/zh-cn/windows/wsl/disk-space)
 
 ## 最后，内网穿透
 
