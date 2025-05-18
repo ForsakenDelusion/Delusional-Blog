@@ -3,7 +3,8 @@ title: 傲来大数据方向HBase组优化日报-Day1
 date: 2025-05-06 17:31:53 +08:00
 filename: 2025-05-06-EulixOS-HBase-Day1
 categories:
-  - Misc
+  - StudyRecord
+  - EulixOS
 tags:
   - EulixOS
   - DataBase
