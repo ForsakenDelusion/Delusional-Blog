@@ -9,6 +9,7 @@ tags:
   - EulixOS
 dir: OpenCourse/RISCV-EulixOS
 share: true
+archive: true
 ---
 
 ## Docker镜像构建

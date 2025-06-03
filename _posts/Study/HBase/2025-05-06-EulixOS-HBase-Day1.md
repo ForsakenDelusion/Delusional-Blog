@@ -62,21 +62,19 @@ chmod +x start_vm.sh
 
 ### QEMU时间不同步问题
 
-QEMU环境中可能会出现系统时间与实际时间不同步的问题，这会影响许多依赖时间的应用。解决方案是安装NTP服务：
+QEMU环境中可能会出现系统时间与实际时间不同步的问题，这会影响许多依赖时间的应用。解决方案是安装chrony服务：
 
 ```shell
 sudo dnf install chrony -y
-
-
 ```
 
-修改`/etc/chrony/chrony.conf`文件，添加中国服务器
+	修改`/etc/chrony/chrony.conf`文件，添加中国服务器
 
 ```text
 server pool.ntp.org iburst
 ```
 
-设置ntp服务开机自启动
+设置chrony服务开机自启动
 
 ```shell
 sudo systemctl start chronyd

@@ -91,6 +91,8 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 - _Linux and others_: , typically .`$XDG_CONFIG_HOME/clangd/config.yaml``~/.config/clangd/config.yaml`
 
+> 如果你找不到这些路径，请手动创建
+
 ```yaml
 CompileFlags:
     Add:
