@@ -9,6 +9,7 @@ tags:
   - Server
 dir: Misc
 share: true
+archive: false
 ---
 ···感觉一直没写过SSH相关教材，为了便利他人也便利自己，还是发一下吧。
 ## 引言
