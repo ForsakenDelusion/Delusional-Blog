@@ -3,7 +3,7 @@
 icon: fas fa-link
 order: 4
 ---
-
+欢迎交换友链！请 <a href="mailto:wangcy0205@gmail.com?subject=友链交换请求&body=%0D%0A%0D%0A我的网站信息如下：%0D%0A%0D%0A- 网站名称：%0D%0A- 网站地址：%0D%0A- 头像URL：%0D%0A- 网站描述：%0D%0A%0D%0A">点击这里发送邮件</a> 
 <style>
   /* * 网格布局容器
    * 在不同屏幕宽度下自动调整每行的卡片数量
