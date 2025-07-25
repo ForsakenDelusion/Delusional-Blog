@@ -1,7 +1,7 @@
-- name: CS Academy Graph Editor
-  url: https://csacademy.com/app/graph_editor/
-  avatar: https://www.google.com/s2/favicons?domain=csacademy.com # 可以用这个API自动获取网站图标，也可以是自己指定的图片链接
-  desc: 在线图论作图工具 源码来自...
+- name: Delusion
+  url: https://delusion.uno
+  avatar: https://delusion.uno/assets/img/avatar.png# 可以用这个API自动获取网站图标，也可以是自己指定的图片链接
+  desc: 我自己
 
 - name: 开发搜
   url: https://www.devso.fun/
