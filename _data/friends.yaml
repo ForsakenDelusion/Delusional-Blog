@@ -1,5 +1,5 @@
 - name: Delusion
   url: https://delusion.uno
-  avatar: https://delusion.uno/assets/img/avatar.png# 可以用这个API自动获取网站图标，也可以是自己指定的图片链接
+  avatar: https://delusion.uno/assets/img/avatar.png
   desc: 我自己
 
