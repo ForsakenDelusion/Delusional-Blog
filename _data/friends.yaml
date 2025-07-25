@@ -3,17 +3,3 @@
   avatar: https://delusion.uno/assets/img/avatar.png# 可以用这个API自动获取网站图标，也可以是自己指定的图片链接
   desc: 我自己
 
-- name: 开发搜
-  url: https://www.devso.fun/
-  avatar: /assets/images/friends/devso.png # 也可以是存放在你自己项目的图片路径
-  desc: DevSo.Fun - 一款为开发者而生的...
-
-- name: zzh's homepage
-  url: https://zzh.im/
-  avatar: https://zzh.im/favicon.png
-  desc: zzh's homepage
-
-- name: Lotuses's Blog
-  url: https://lotuses.github.io/
-  avatar: https://lotuses.github.io/images/avatar.png
-  desc: Deserted World
