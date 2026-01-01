@@ -1,7 +1,7 @@
 ---
 title: RISCV向量指令集初探
 date: 2025-05-20 22:42:41 +08:00
-filename: 2025-05-20-RISCV向量指令集初探
+filename: 2025-05-20-RISCV-ISA-Resaerch
 categories:
   - Study
   - RISCV
