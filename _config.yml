@@ -217,6 +217,8 @@ exclude:
   - purgecss.js
   - rollup.config.js
   - "package*.json"
+  - vendor
+  - .vercel
 
 jekyll-archives:
   enabled: [categories, tags]
