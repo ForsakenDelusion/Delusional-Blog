@@ -706,3 +706,11 @@ WantedBy = multi-user.target
 sudo systemctl enable frpc
 sudo systemctl start frpc
 ```
+
+## 蓝牙检测不出来鼠标但能检测其他设备
+
+https://www.reddit.com/r/archlinux/comments/15z02rz/bluetooth_device_not_showing_up/?tl=zh-hans
+
+我试着连我的蓝牙鼠标，但配对的时候它没显示出来。它已经在配对模式了（像我的手机和平板电脑都能看到它，可以配对），但我的 arch 系统就是看不到它。
+
+解决办法是运行 `sudo btmgmt le on`，这个是低功耗设备需要的。
