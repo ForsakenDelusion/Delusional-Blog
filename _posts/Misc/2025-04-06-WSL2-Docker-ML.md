@@ -253,7 +253,7 @@ nvidia-smi
 
 https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local
 
-![WSL2配置Docker配置机器学习环境-20250406.png](../../assets/images/wsl2配置docker配置机器学习环境-20250406.png)
+![WSL2配置Docker配置机器学习环境-20250406.png](../../assets/images/WSL2%E9%85%8D%E7%BD%AEDocker%E9%85%8D%E7%BD%AE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83-20250406.png)
 
 ## 第三部分：在 WSL 中安装和配置 Docker
 
