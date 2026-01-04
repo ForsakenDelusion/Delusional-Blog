@@ -11,9 +11,9 @@ tags:
 dir: OpenCourse/CS61C
 share: true
 ---
-![CS61C｜Lec8-RISC-V Instruction Formats-20250122.png](../../../assets/images/cs61c｜lec8-risc-v-instruction-formats-20250122.png)
+![CS61C｜Lec8-RISC-V Instruction Formats-20250122.png](../../../assets/images/CS61C%EF%BD%9CLec8-RISC-V%20Instruction%20Formats-20250122.png)
 
-![CS61C｜Lec8-RISC-V Instruction Formats-20250122-1.png](../../../assets/images/cs61c｜lec8-risc-v-instruction-formats-20250122-1.png)
+![CS61C｜Lec8-RISC-V Instruction Formats-20250122-1.png](../../../assets/images/CS61C%EF%BD%9CLec8-RISC-V%20Instruction%20Formats-20250122-1.png)
 # Stored-Program Concept
 
 以前的计算机是非常难reprogram的，因为要用编程线和开关进行编程。通常需要2到3天去编一个新程序
@@ -52,7 +52,7 @@ share: true
 
 新的机器为了兼容旧的程序("binaries")，同时运行使用新指令的程序，导致了向后兼容的指令集越来越多
 
-![CS61C｜Lec8-RISC-V Instruction Formats-20250122-2.png](../../../assets/images/cs61c｜lec8-risc-v-instruction-formats-20250122-2.png)
+![CS61C｜Lec8-RISC-V Instruction Formats-20250122-2.png](../../../assets/images/CS61C%EF%BD%9CLec8-RISC-V%20Instruction%20Formats-20250122-2.png)
 
 # Instructions as Numbers
 
@@ -106,7 +106,7 @@ share: true
 
 ## R-type
 
-![CS61C｜Lec8-RISC-V Instruction Formats-20250122-3.png](../../../assets/images/cs61c｜lec8-risc-v-instruction-formats-20250122-3.png)
+![CS61C｜Lec8-RISC-V Instruction Formats-20250122-3.png](../../../assets/images/CS61C%EF%BD%9CLec8-RISC-V%20Instruction%20Formats-20250122-3.png)
 
 - 为使用三个寄存器且没有立即数的指令设计
 
@@ -164,7 +164,7 @@ Step 3:Write out format
 
 这里就解释了前面的为什么imm只有12位了
 
-![CS61C｜Lec8-RISC-V Instruction Formats-20250122-4.png](../../../assets/images/cs61c｜lec8-risc-v-instruction-formats-20250122-4.png)
+![CS61C｜Lec8-RISC-V Instruction Formats-20250122-4.png](../../../assets/images/CS61C%EF%BD%9CLec8-RISC-V%20Instruction%20Formats-20250122-4.png)
 
 - 为那些使用了两个寄存器（一个源一个目标）和一个立即数的指令设计
 
@@ -192,7 +192,7 @@ Step 3:Write out format
 
 ## I*-type
 
-![CS61C｜Lec8-RISC-V Instruction Formats-20250122-5.png](../../../assets/images/cs61c｜lec8-risc-v-instruction-formats-20250122-5.png)
+![CS61C｜Lec8-RISC-V Instruction Formats-20250122-5.png](../../../assets/images/CS61C%EF%BD%9CLec8-RISC-V%20Instruction%20Formats-20250122-5.png)
 
 为了位移指令(slli,srli,srai)，最大可以位移31位
 - 这是因为寄存器的宽度是 32 位，而移位操作通常不会包括最左边的符号位（对于有符号数）。因此，任何超过 31 的移位量实际上都会将整个寄存器的内容移出，导致寄存器清零。
@@ -201,7 +201,7 @@ Step 3:Write out format
 
 ## S-type
 
-![CS61C｜Lec8-RISC-V Instruction Formats-20250122-6.png](../../../assets/images/cs61c｜lec8-risc-v-instruction-formats-20250122-6.png)
+![CS61C｜Lec8-RISC-V Instruction Formats-20250122-6.png](../../../assets/images/CS61C%EF%BD%9CLec8-RISC-V%20Instruction%20Formats-20250122-6.png)
 
 为那些需要两个源寄存器和一个立即数的指令设计（Store instructions
 
@@ -213,7 +213,7 @@ Step 3:Write out format
 
 ## SB-type
 
-![CS61C｜Lec8-RISC-V Instruction Formats-20250122-7.png](../../../assets/images/cs61c｜lec8-risc-v-instruction-formats-20250122-7.png)
+![CS61C｜Lec8-RISC-V Instruction Formats-20250122-7.png](../../../assets/images/CS61C%EF%BD%9CLec8-RISC-V%20Instruction%20Formats-20250122-7.png)
 
 格式和S差不多，所以B-Type又叫SB-Type
 
@@ -221,7 +221,7 @@ Step 3:Write out format
 
 ## U-type
 
-![CS61C｜Lec8-RISC-V Instruction Formats-20250122-8.png](../../../assets/images/cs61c｜lec8-risc-v-instruction-formats-20250122-8.png)
+![CS61C｜Lec8-RISC-V Instruction Formats-20250122-8.png](../../../assets/images/CS61C%EF%BD%9CLec8-RISC-V%20Instruction%20Formats-20250122-8.png)
 
 为那些需要20位立即数的指令设计的,比如`lui`和`auipc`
 
