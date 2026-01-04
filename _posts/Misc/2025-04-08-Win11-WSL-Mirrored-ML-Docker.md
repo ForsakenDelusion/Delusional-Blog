@@ -150,7 +150,7 @@ nvidia-smi
 
 https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local
 
-![WSL2配置Docker配置机器学习环境-20250406.png](../../assets/images/wsl2配置docker配置机器学习环境-20250406.png)
+![WSL2配置Docker配置机器学习环境-20250406.png](../../assets/images/WSL2%E9%85%8D%E7%BD%AEDocker%E9%85%8D%E7%BD%AE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83-20250406.png)
 
 
 **第一步：查找 nvcc 安装位置**
@@ -514,7 +514,7 @@ Visual Studio Code 的 DevContainer 功能可以让你在容器中开发代码�
 
 也很简单，流程就是先点击vscode左下角的连接图标，连接到WSL。
 
-![Win11下的WSL2配合Docker搭建深度学习环境-20250408.png](../../assets/images/win11下的wsl2配合docker搭建深度学习环境-20250408.png)
+![Win11下的WSL2配合Docker搭建深度学习环境-20250408.png](../../assets/images/Win11%E4%B8%8B%E7%9A%84WSL2%E9%85%8D%E5%90%88Docker%E6%90%AD%E5%BB%BA%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83-20250408.png)
 
 然后打开Docker扩展，选中你想进入的容器，右键，接着选择带有`Visual Studio Code`字样的选项即可。
 

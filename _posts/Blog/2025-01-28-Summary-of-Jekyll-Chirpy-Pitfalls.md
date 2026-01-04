@@ -16,9 +16,9 @@ share: true
 
 表现为
 
-![Jeklly主题Chirpy错误代码块-20250128.png](../../assets/images/jeklly主题chirpy错误代码块-20250128.png)
+![Jeklly主题Chirpy错误代码块-20250128.png](../../assets/images/Jeklly%E4%B8%BB%E9%A2%98Chirpy%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%E5%9D%97-20250128.png)
 
-![Jeklly主题Chirpy错误代码块-20250128-1.png](../../assets/images/jeklly主题chirpy错误代码块-20250128-1.png)
+![Jeklly主题Chirpy错误代码块-20250128-1.png](../../assets/images/Jeklly%E4%B8%BB%E9%A2%98Chirpy%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%E5%9D%97-20250128-1.png)
 
 这种情况。解决办法也很简单， 把以下内容添加到 `assets/css/jekyll-theme-chirpy.scss` 文件中。如果你还没有这个[文件](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/assets/css/jekyll-theme-chirpy.scss)，那就创建一个：
 

@@ -23,9 +23,9 @@ share: true
 
 ## CSR Instructions
 
-![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122.png](../../../assets/images/cs61c｜lec13-single-cycle-cpu-datapath-controls-20250122.png)
+![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122.png](../../../assets/images/CS61C%EF%BD%9CLec13-Single-Cycle%20CPU%20Datapath%20Controls-20250122.png)
 
-![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-1.png](../../../assets/images/cs61c｜lec13-single-cycle-cpu-datapath-controls-20250122-1.png)
+![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-1.png](../../../assets/images/CS61C%EF%BD%9CLec13-Single-Cycle%20CPU%20Datapath%20Controls-20250122-1.png)
 
 ## CSRRW（Atomic Read/Write CSR）指令
 
@@ -65,39 +65,39 @@ CSRRW（Control and Status Register Read Word）指令是一种原子读写操�
 
 ### SW
 
-![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-2.png](../../../assets/images/cs61c｜lec13-single-cycle-cpu-datapath-controls-20250122-2.png)
+![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-2.png](../../../assets/images/CS61C%EF%BD%9CLec13-Single-Cycle%20CPU%20Datapath%20Controls-20250122-2.png)
 
 ### beq
 
-![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-3.png](../../../assets/images/cs61c｜lec13-single-cycle-cpu-datapath-controls-20250122-3.png)
+![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-3.png](../../../assets/images/CS61C%EF%BD%9CLec13-Single-Cycle%20CPU%20Datapath%20Controls-20250122-3.png)
 
 ## Instruction Timing
 
 ### Add
 
-![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-4.png](../../../assets/images/cs61c｜lec13-single-cycle-cpu-datapath-controls-20250122-4.png)
+![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-4.png](../../../assets/images/CS61C%EF%BD%9CLec13-Single-Cycle%20CPU%20Datapath%20Controls-20250122-4.png)
 
 注意，在PC在上升沿更新时，所有位时同时更新的，因为他们经过相同的触发器，但是PC+4是最低位比高位更先更新(应该是因为级联加法器的缘故，从低位加到高位)。在图表中，我们显示最后一位更新好了之后的时间。
 
 量化时间
 
-![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-5.png](../../../assets/images/cs61c｜lec13-single-cycle-cpu-datapath-controls-20250122-5.png)
+![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-5.png](../../../assets/images/CS61C%EF%BD%9CLec13-Single-Cycle%20CPU%20Datapath%20Controls-20250122-5.png)
 
 下面关键路径里面的max大括号，实际上就是在找图上几条路径中谁的延迟最大
 ### LW
 
-![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-6.png](../../../assets/images/cs61c｜lec13-single-cycle-cpu-datapath-controls-20250122-6.png)
+![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-6.png](../../../assets/images/CS61C%EF%BD%9CLec13-Single-Cycle%20CPU%20Datapath%20Controls-20250122-6.png)
 
-![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-7.png](../../../assets/images/cs61c｜lec13-single-cycle-cpu-datapath-controls-20250122-7.png)
+![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-7.png](../../../assets/images/CS61C%EF%BD%9CLec13-Single-Cycle%20CPU%20Datapath%20Controls-20250122-7.png)
 
-![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-8.png](../../../assets/images/cs61c｜lec13-single-cycle-cpu-datapath-controls-20250122-8.png)
+![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-8.png](../../../assets/images/CS61C%EF%BD%9CLec13-Single-Cycle%20CPU%20Datapath%20Controls-20250122-8.png)
 
 如果我们只执行数据通路的一部分，我们就可以按照每个执行单元中的最长延迟来设定对应频率，这样我们可以获得5GHz的频率，但是我们不能这样做，我们不能只执行一些命令而忽略其他命令。但是稍后，我们会谈到如何从这个想法中获取收益。
 
 
 ## Control Logic Truth Table
 
-![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-9.png](../../../assets/images/cs61c｜lec13-single-cycle-cpu-datapath-controls-20250122-9.png)
+![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-9.png](../../../assets/images/CS61C%EF%BD%9CLec13-Single-Cycle%20CPU%20Datapath%20Controls-20250122-9.png)
 
 BrEq和BrLT是条件转移比较的结果，指向Control
 
@@ -121,14 +121,14 @@ BrEq和BrLT是条件转移比较的结果，指向Control
 
 我们可以用9bit来区分一个指令
 
-![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-10.png](../../../assets/images/cs61c｜lec13-single-cycle-cpu-datapath-controls-20250122-10.png)
+![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-10.png](../../../assets/images/CS61C%EF%BD%9CLec13-Single-Cycle%20CPU%20Datapath%20Controls-20250122-10.png)
 
 ## Combination Logic Control
 
-![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-11.png](../../../assets/images/cs61c｜lec13-single-cycle-cpu-datapath-controls-20250122-11.png)
+![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-11.png](../../../assets/images/CS61C%EF%BD%9CLec13-Single-Cycle%20CPU%20Datapath%20Controls-20250122-11.png)
 ## ROM-based Control
 
-![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-12.png](../../../assets/images/cs61c｜lec13-single-cycle-cpu-datapath-controls-20250122-12.png)
+![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-12.png](../../../assets/images/CS61C%EF%BD%9CLec13-Single-Cycle%20CPU%20Datapath%20Controls-20250122-12.png)
 
 我们有9位来自指令的输入，还有2位来自数据通路本身的输入，(BrEq,BrLT决定着跳转与否)
 
@@ -140,11 +140,11 @@ ROM是一个与或结构，左边的线在解码一条指令的时候只会有�
 
 关于OR->应该是指，输出只是这么多行中的一个，add或sub或or或...所以实际上始终只有一个输出。
 
-![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-13.png](../../../assets/images/cs61c｜lec13-single-cycle-cpu-datapath-controls-20250122-13.png)
+![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-13.png](../../../assets/images/CS61C%EF%BD%9CLec13-Single-Cycle%20CPU%20Datapath%20Controls-20250122-13.png)
 下面是su20的图，都差不多其实
-![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-14.png](../../../assets/images/cs61c｜lec13-single-cycle-cpu-datapath-controls-20250122-14.png)
+![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-14.png](../../../assets/images/CS61C%EF%BD%9CLec13-Single-Cycle%20CPU%20Datapath%20Controls-20250122-14.png)
 
 ## Control Logic to Decode add
 
-![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-15.png](../../../assets/images/cs61c｜lec13-single-cycle-cpu-datapath-controls-20250122-15.png)
+![CS61C｜Lec13-Single-Cycle CPU Datapath Controls-20250122-15.png](../../../assets/images/CS61C%EF%BD%9CLec13-Single-Cycle%20CPU%20Datapath%20Controls-20250122-15.png)
 

@@ -199,11 +199,11 @@ python-version: 3.x
 
 首先来到项目仓库的Settings-Pages设置，将你的域名设置一下。
 
-![MKdocs指南-20250122.png](../../assets/images/mkdocs指南-20250122.png)
+![MKdocs指南-20250122.png](../../assets/images/MKdocs%E6%8C%87%E5%8D%97-20250122.png)
 
 然后再去我们的域名商设置一下解析
 
-![MKdocs指南-20250122-1.png](../../assets/images/mkdocs指南-20250122-1.png)
+![MKdocs指南-20250122-1.png](../../assets/images/MKdocs%E6%8C%87%E5%8D%97-20250122-1.png)
 
 我这里直接解析域名，也可以选择解析ip
 

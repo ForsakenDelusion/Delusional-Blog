@@ -30,7 +30,7 @@ Error: Command "jekyll build" exited with 1
 
 在个人用的Vercel上是这样设置的
 
-![Vercel等云平台部署Jekyll博客踩坑总结-20260102.png](../../assets/images/vercel等云平台部署jekyll博客踩坑总结-20260102.png)
+![Vercel等云平台部署Jekyll博客踩坑总结-20260102.png](../../assets/images/Vercel%E7%AD%89%E4%BA%91%E5%B9%B3%E5%8F%B0%E9%83%A8%E7%BD%B2Jekyll%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E6%80%BB%E7%BB%93-20260102.png)
 
 加上两个条目，分别是
 
