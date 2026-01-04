@@ -25,4 +25,4 @@ https://outlook.live.com/mail
 
 然后如下设置即可。
 
-![关于Outlook连接雷鸟Thunderbird登录失败的解决方案-20250215-1.png](../../assets/images/关于outlook连接雷鸟thunderbird登录失败的解决方案-20250215-1.png)
+![关于Outlook连接雷鸟Thunderbird登录失败的解决方案-20250215-1.png](../../assets/images/%E5%85%B3%E4%BA%8EOutlook%E8%BF%9E%E6%8E%A5%E9%9B%B7%E9%B8%9FThunderbird%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-20250215-1.png)
