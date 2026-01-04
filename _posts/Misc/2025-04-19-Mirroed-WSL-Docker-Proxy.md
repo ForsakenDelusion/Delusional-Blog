@@ -21,7 +21,7 @@ archive: false
 
 这一步在Windows上进行。打开WSL Setting，在网络中打开`主机地址回环`这个选项
 
-![Mirroed网络模式下WSL内的Docker容器代理方案-20250419.png](../../assets/images/mirroed网络模式下wsl内的docker容器代理方案-20250419.png)
+![Mirroed网络模式下WSL内的Docker容器代理方案-20250419.png](../../assets/images/Mirroed%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F%E4%B8%8BWSL%E5%86%85%E7%9A%84Docker%E5%AE%B9%E5%99%A8%E4%BB%A3%E7%90%86%E6%96%B9%E6%A1%88-20250419.png)
 
 只有这样，才能在WSL的Docker容器内访问到我们主机的代理端口。
 
