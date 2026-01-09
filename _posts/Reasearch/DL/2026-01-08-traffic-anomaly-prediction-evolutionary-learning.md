@@ -10,6 +10,7 @@ dir: Reasearch/DL
 share: true
 archive: false
 priority: 10
+math: true
 ---
 
 ## 问题与挑战
