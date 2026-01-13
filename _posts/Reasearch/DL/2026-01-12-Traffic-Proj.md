@@ -29,6 +29,7 @@ dir: Reasearch/DL
 share: true
 archive: false
 priority: 100
+math: true
 ---
 
 # 全部公式及其流程
